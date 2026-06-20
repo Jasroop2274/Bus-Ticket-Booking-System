@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Manage Trips</h2>
+
+<form method="post" class="row g-3 mb-4">
+  <div class="col-md-3">
+    <label class="form-label">Bus</label>
+    <select name="bus_id" class="form-select" required>
+      <option value="">Select bus</option>
+      {% for b in buses %}
+      <option value="{{ b.id }}">{{ b.bus_no }} ({{ b.operator }})</option>
+      {% endfor %}
+    </select>
+  </div>
+  <div class="col-md-3">
+    <label class="form-label">Source</label>
+    <input type="text" name="source" list="cities" class="form-control" required>
+  </div>
+  <div class="col-md-3">
+    <label class="form-label">Destination</label>
+    <input type="text" name="destination" list="cities" class="form-control" required>
+  </div>
+  <div class="col-md-3">
+    <label class="form-label">Travel Date</label>
+    <input type="date" name="travel_date" class="form-control" required>
+  </div>
+  <div class="col-md-3">
+    <label class="form-label">Departure Time (HH:MM)</label>
+    <input type="text" name="departure_time" class="form-control" required>
+  </div>
+  <div class="col-md-3">
+    <label class="form-label">Fare</label>
+    <input type="number" step="0.01" name="fare" class="form-control" required>
+  </div>
+  <div class="col-md-3 d-flex align-items-end">
+    <button type="submit" class="btn btn-primary">Add Trip</button>
+  </div>
+</form>
+
+<datalist id="cities">
+  {% for city in cities %}
+  <option value="{{ city }}">
+  {% endfor %}
+</datalist>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Bus</th>
+      <th>Route</th>
+      <th>Date</th>
+      <th>Departure</th>
+      <th>Fare</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for t in trips %}
+    <tr>
+      <td>{{ t.id }}</td>
+      <td>{{ t.bus_no }} ({{ t.operator }})</td>
+      <td>{{ t.source }} - {{ t.destination }}</td>
+      <td>{{ t.travel_date }}</td>
+      <td>{{ t.departure_time }}</td>
+      <td>{{ t.fare }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
