@@ -1,0 +1,130 @@
+/* Simple custom styling for Bus Ticket Booking System */
+
+body {
+    background:
+        linear-gradient(rgba(244, 246, 249, 0.653), rgba(244, 246, 249, 0.92)),
+        url("https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=1600&q=80");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    color: #222;
+    min-height: 100vh;
+}
+
+.page-wrapper {
+    padding-bottom: 30px;
+}
+
+.custom-navbar {
+    background: linear-gradient(90deg, rgba(31, 41, 55, 0.96), rgba(17, 24, 39, 0.96));
+    backdrop-filter: blur(6px);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.10);
+}
+
+.custom-navbar .navbar-brand,
+.custom-navbar .nav-link,
+.custom-navbar .navbar-text {
+    color: #f8f9fa !important;
+}
+
+.custom-navbar .navbar-brand {
+    font-weight: 700;
+    letter-spacing: 0.4px;
+}
+
+.custom-navbar .nav-link:hover {
+    color: #cbd5e1 !important;
+}
+
+h1, h2, h3 {
+    font-weight: 600;
+    color: #1f2937;
+    margin-bottom: 18px;
+}
+
+form {
+    background: rgba(255, 255, 255, 0.92);
+    padding: 22px;
+    border-radius: 14px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    backdrop-filter: blur(4px);
+}
+
+.form-label {
+    font-weight: 500;
+    color: #374151;
+}
+
+.form-control,
+.form-select {
+    border-radius: 10px;
+    border: 1px solid #ced4da;
+    padding: 10px 12px;
+    background-color: rgba(255, 255, 255, 0.95);
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 0.15rem rgba(37, 99, 235, 0.15);
+    background-color: #fff;
+}
+
+.btn-primary {
+    background-color: #2563eb;
+    border-color: #2563eb;
+    border-radius: 10px;
+    padding: 10px 18px;
+    font-weight: 500;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.18);
+}
+
+.btn-primary:hover {
+    background-color: #1d4ed8;
+    border-color: #1d4ed8;
+}
+
+.table {
+    background: rgba(255, 255, 255, 0.94);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 6px 22px rgba(0, 0, 0, 0.06);
+    backdrop-filter: blur(4px);
+}
+
+.table thead {
+    background-color: #e9eef5;
+}
+
+.table th {
+    color: #1f2937;
+    font-weight: 600;
+}
+
+.table td {
+    vertical-align: middle;
+}
+
+.alert {
+    border-radius: 10px;
+}
+
+.card,
+.search-card,
+.booking-card {
+    background: rgba(255, 255, 255, 0.92);
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 6px 22px rgba(0, 0, 0, 0.07);
+    padding: 20px;
+    backdrop-filter: blur(4px);
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
