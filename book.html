@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Book Ticket</h2>
+<p><strong>Bus:</strong> {{ trip['bus_no'] }} ({{ trip['operator'] }})</p>
+<p><strong>Route:</strong> {{ trip['source'] }} to {{ trip['destination'] }}</p>
+<p><strong>Date:</strong> {{ trip['travel_date'] }} | <strong>Departure:</strong> {{ trip['departure_time'] }}</p>
+<p><strong>Fare per seat:</strong> {{ trip['fare'] }}</p>
+<p><strong>Available seats:</strong> {{ trip['available_seats'] }}</p>
+<form method="post">
+  <div class="mb-3">
+    <label class="form-label">Number of seats</label>
+    <input type="number" name="seats" class="form-control" min="1" required>
+  </div>
+  {% if error %}
+  <div class="alert alert-danger">{{ error }}</div>
+  {% endif %}
+  <button type="submit" class="btn btn-primary">Confirm Booking</button>
+</form>
+{% endblock %}
