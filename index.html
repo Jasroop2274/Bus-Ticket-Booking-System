@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Search Buses</h2>
+<form method="post" action="{{ url_for('customer.search') }}" class="row g-3">
+  <div class="col-md-4">
+    <label class="form-label">Source</label>
+    <input type="text" name="source" list="cities" class="form-control" required>
+  </div>
+  <div class="col-md-4">
+    <label class="form-label">Destination</label>
+    <input type="text" name="destination" list="cities" class="form-control" required>
+  </div>
+  <div class="col-md-4">
+    <label class="form-label">Travel Date</label>
+    <input type="date" name="date" class="form-control" required>
+  </div>
+  <div class="col-12 mt-3">
+    <button type="submit" class="btn btn-primary">Search</button>
+  </div>
+</form>
+
+<datalist id="cities">
+  {% for city in cities %}
+  <option value="{{ city }}">
+  {% endfor %}
+</datalist>
+{% endblock %}
