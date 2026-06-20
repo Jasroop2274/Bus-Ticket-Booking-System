@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Admin Dashboard</h2>
+<ul>
+  <li><a href="{{ url_for('admin.buses') }}">Manage Buses</a></li>
+  <li><a href="{{ url_for('admin.trips') }}">Manage Trips</a></li>
+</ul>
+<p>Logged in as: {{ session.get('user_name') }} ({{ session.get('role') }})</p>
+{% endblock %}
