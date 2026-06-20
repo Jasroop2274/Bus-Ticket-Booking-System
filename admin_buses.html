@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Manage Buses</h2>
+
+<form method="post" class="row g-3 mb-4">
+  <div class="col-md-3">
+    <label class="form-label">Bus No</label>
+    <input type="text" name="bus_no" class="form-control" required>
+  </div>
+  <div class="col-md-3">
+    <label class="form-label">Operator</label>
+    <input type="text" name="operator" class="form-control" required>
+  </div>
+  <div class="col-md-3">
+    <label class="form-label">Total Seats</label>
+    <input type="number" name="total_seats" class="form-control" min="1" required>
+  </div>
+  <div class="col-md-3 d-flex align-items-end">
+    <button type="submit" class="btn btn-primary">Add Bus</button>
+  </div>
+</form>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Bus No</th>
+      <th>Operator</th>
+      <th>Total Seats</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for b in buses %}
+    <tr>
+      <td>{{ b.id }}</td>
+      <td>{{ b.bus_no }}</td>
+      <td>{{ b.operator }}</td>
+      <td>{{ b.total_seats }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
