@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Available Buses from {{ source }} to {{ destination }} on {{ date }}</h2>
+{% if trips %}
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Bus No</th>
+      <th>Operator</th>
+      <th>Departure</th>
+      <th>Fare</th>
+      <th>Available Seats</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for t in trips %}
+    <tr>
+      <td>{{ t['bus_no'] }}</td>
+      <td>{{ t['operator'] }}</td>
+      <td>{{ t['departure_time'] }}</td>
+      <td>{{ t['fare'] }}</td>
+      <td>{{ t['available_seats'] }}</td>
+      <td>
+        {% if t['available_seats'] > 0 %}
+        <a href="{{ url_for('customer.book', trip_id=t['id']) }}" class="btn btn-sm btn-success">Book</a>
+        {% else %}
+        Full
+        {% endif %}
+      </td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% else %}
+<p>No buses found for given search.</p>
+{% endif %}
+{% endblock %}
